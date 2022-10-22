@@ -16,15 +16,17 @@ def home():
     if "token" in session:
         bearer_client = APIClient(session.get('token'), bearer = True)
         current_user = bearer_client.users.get_current_user()
+        if DataReceiver.check(current_user.id) == True:
+            #! User Account Info !#
+            userAccountB = ["2_Coin", "3_Time"]; userAccount = []
+            for i in range(0, len(userAccountB)):   
+                userAccount.append(DataReceiver.get(f"USERDATA/{current_user.id}", f"{userAccountB[i]}"))
 
-        #! User Account Info !#
-        userAccountB = ["2_Coin", "3_Time"]; userAccount = []
-        for i in range(0, len(userAccountB)):
-            userAccount.append(DataReceiver.get(f"USERDATA/{current_user.id}", f"{userAccountB[i]}"))
+            return render_template("userInfo.html", current_user = current_user, account = userAccount) 
 
-        return render_template("index.html", current_user = current_user, account = userAccount) 
+        else: return render_template("userInfo.html", current_user = current_user, error = False) 
 
-    return render_template("index.html", oauth_uri = OAUTH_URI)
+    return render_template("userInfo.html", oauth_uri = OAUTH_URI)
 
 @app.route("/oauth/callback")
 def callback():
