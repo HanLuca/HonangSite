@@ -7,12 +7,23 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/userInfo.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='image/Icon.png') }}">
-    <title>Document</title>
+
+    {% if current_user %}
+    <title>Profile ( {{ current_user.username }} )</title>
+
+    {% else %}
+    <title>Login</title>
+
+    {% endif %}
 </head>
 <body>
     {% if current_user %}
         {% if error == False %}
             <p>호낭봇에 가입되어있지 않아요! [ /계정생성 ] 명령어로 가입 후 시도해주세요.</p>
+
+            <a href="/logout">
+                <button class="buttonLogoutSend">Logout</button>
+            </a>
 
         {% else %}  
         <div class="profileBox"></div>
