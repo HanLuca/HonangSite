@@ -18,7 +18,7 @@ def home():
         current_user = bearer_client.users.get_current_user()
         if DataReceiver.check(current_user.id) == True:
             #! User Account Info !#
-            userAccountB = ["2_Coin", "3_Time"]; userAccount = []
+            userAccountB = ["2_Coin", "3_Exp", "4_Level", "5_Time"]; userAccount = []
             for i in range(0, len(userAccountB)):   
                 userAccount.append(DataReceiver.get(f"USERDATA/{current_user.id}", f"{userAccountB[i]}"))
 
