@@ -17,40 +17,34 @@
     {% endif %}
 </head>
 <body>
-    {% if current_user %}
-        {% if error == False %}
-            <p>호낭봇에 가입되어있지 않아요! [ /계정생성 ] 명령어로 가입 후 시도해주세요.</p>
 
-            <a href="/logout">
-                <button class="buttonLogoutSend">Logout</button>
-            </a>
+    {% if error == False %}
+        <p>호낭봇에 가입되어있지 않아요! [ /계정생성 ] 명령어로 가입 후 시도해주세요.</p>
 
-        {% else %}  
-        <div class="profileBox"></div>
-            <img class="profileImage" src="{{ current_user.avatar_url }}">
-            <p class="idText">{{ current_user.username }}</p>
-            <p class="stateText">#{{ current_user.discriminator }}</p>
-        </div>
-
-        <div class="indexBox">
-            <p class="index">
-                <span style="text-align: center;">┌────── [ 정보 ] ──────┐</span> <br>
-                ✨ Coin > <span style="color: yellow;">{{ account[0] }} C</span> <br>
-                💹 Level > <span style="color: greenyellow;">{{ account[2] }} Lv</span> <br>
-                ❇️ Exp > <span style="color: aqua;">{{ account[1] }} Ep</span>
-            </p>    
-        </div>
-        
-        {% endif %}
-            <a href="/logout">
-                <button class="buttonLogoutSend">Logout</button>
-            </a>
-
-    {% else %}
-        <a href="{{ oauth_uri }}">
-            <button>Login with Discord</button>
+        <a href="/logout">
+            <button class="buttonLogoutSend">Logout</button>
         </a>
 
+    {% else %}  
+    <div class="profileBox"></div>
+        <img class="profileImage" src="{{ current_user.avatar_url }}">
+        <p class="idText">{{ current_user.username }}</p>
+        <p class="stateText">#{{ current_user.discriminator }}</p>
+    </div>
+
+    <div class="indexBox">
+        <p class="index">
+            <span style="text-align: center;">┌────── [ 정보 ] ──────┐</span> <br>
+            ✨ Coin > <span style="color: yellow;">{{ account[0] }} C</span> <br>
+            💹 Level > <span style="color: greenyellow;">{{ account[2] }} Lv</span> <br>
+            ❇️ Exp > <span style="color: aqua;">{{ account[1] }} Ep</span>
+        </p>    
+    </div>
+    
     {% endif %}
+        <a href="/logout">
+            <button class="buttonLogoutSend">Logout</button>
+        </a>
+        
 </body>
 </html>

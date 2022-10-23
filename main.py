@@ -11,8 +11,21 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "verysecret"
 client = APIClient(TOKEN, client_secret = CLIENT_SECRET)
 
+#! Home !#
 @app.route("/")
 def home():
+    if "token" in session:
+        bearer_client = APIClient(session.get('token'), bearer = True)
+        current_user = bearer_client.users.get_current_user()
+
+        return render_template("home.html", current_user = current_user)
+
+    else:
+        return render_template("home.html", oauth_uri = OAUTH_URI)
+
+#! Account !#
+@app.route("/profile")
+def profile():
     if "token" in session:
         bearer_client = APIClient(session.get('token'), bearer = True)
         current_user = bearer_client.users.get_current_user()
@@ -26,7 +39,8 @@ def home():
 
         else: return render_template("userInfo.html", current_user = current_user, error = False) 
 
-    return render_template("userInfo.html", oauth_uri = OAUTH_URI)
+    else:
+        return render_template("home.html", oauth_uri = OAUTH_URI)
 
 @app.route("/oauth/callback")
 def callback():

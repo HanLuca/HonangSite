@@ -1,5 +1,5 @@
 body {
-    background-color: skyblue;;
+    background-color: skyblue;
 
     color: white;
     font-weight: bold;
@@ -10,16 +10,6 @@ body {
 a, a:link, a:visited, a:active, a:hover {
     text-decoration:none;
     color: white;
-}
-
-.buttonBack {
-    background-color: green; color: white;
-    border: none; border-radius: 10px;
-    height: 30px; width: 200px; cursor: pointer;
-
-    position: absolute;
-    top: 80%; left: 40%;
-    transform: translate(-50%,-50%);
 }
 
 .buttonLogoutSend {
