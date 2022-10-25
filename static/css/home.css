@@ -1,45 +1,66 @@
-body {
-    background-color: #4FE7AF ;
-    margin: 0;
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
-    color: white;
-    font-weight: bold;
+/* Body */
+body {
+    background-color: #EEEEEE;
+    font-family: 'Do Hyeon', sans-serif;
+    margin: 0;
     
     user-select: none; /* Drag Ban - user-select: text;*/
 }
 
 a, a:link, a:visited, a:active, a:hover {
     text-decoration:none;
-    color: white;
+    color: currentColor;
 }
 
-/* Routes */
-.topStateBar {
-    background-color: #11C4D4;
-    color: white;
-    width: 100%; height: 65px; 
+/* Header */
+header {
+    position: fixed; z-index: 0;
+    top: 0; left: 0; right: 0;
+
+    height: 30px; padding: 0.5rem 1.5rem; /* rem = 16px * 10 */
+    color: black; background-color: #C2C2C2;
+
+    display: flex; justify-content: space-between;
+    align-items: center; font-size: 15px;
 }
 
-.topLogin {
-    color: white;
-
-    position: absolute;
-    top: 3%; left: 93%;
-}
-
-.topProfileImg {
-    width: 30px; height: 30px;
+header img {
+    width: 2rem; height: 2rem;
     border-radius: 50%;
 
-    position: absolute;
-    top: 2.5%; left: 97%;
+    margin-top: 5px;
 }
 
-/* Login Successed */
-.profileImg {
-    width: 30px; height: 30px;
-    border-radius: 50%;
+/* Content */
+content {
+    position: absolute; z-index: -1;
+    top: 55px; left: 0; right: 0;
 
+    height: 50px; padding: 100px; /* rem = 16px * 10 */
+    color: black; background-color: #EEEEEE;
+
+    /* display: flex; justify-content: center; */
+    align-items: center; font-size: 30px;
+}
+
+content a img {
+    position: relative;
+    top: 10px; left: 0; right: 0;
+
+    align-items: center;
+}
+
+/* Footer */
+footer {
     position: absolute;
-    top: 2.5%; left: 97%;
+    top: 1000px; left: 0; right: 0;
+
+    height: 50px; padding: 100px; /* rem = 16px * 10 */
+    color: black; background-color: #C2C2C2;
+
+    /* display: flex; justify-content: center; */
+    align-items: center; font-size: 15px;
 }

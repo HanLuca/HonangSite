@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="31" viewBox="0 0 100 31">
+  <g id="사각형_1" data-name="사각형 1" fill="#fff" stroke="#ddecca" stroke-width="3">
+    <rect width="100" height="31" stroke="none"/>
+    <rect x="1.5" y="1.5" width="97" height="28" fill="none"/>
+  </g>
+  <text id="초대하기" transform="translate(26 21)" font-size="13" font-family="NotoSansCJKkr-Regular, Noto Sans CJK KR"><tspan x="0" y="0">초대하기</tspan></text>
+</svg>

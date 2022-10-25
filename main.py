@@ -44,10 +44,12 @@ def profile():
 
 @app.route("/oauth/callback")
 def callback():
-    code = request.args["code"] 
-    access_token = client.oauth.get_access_token(code, REDIRECT_URI).access_token
-    session["token"] = access_token
-    return redirect("/")
+    try: code = request.args["code"] 
+    except: return redirect("/")
+    else:
+        access_token = client.oauth.get_access_token(code, REDIRECT_URI).access_token
+        session["token"] = access_token
+        return redirect("/")
 
 @app.route("/logout")
 def logout():
