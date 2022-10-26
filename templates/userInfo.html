@@ -17,33 +17,24 @@
     {% endif %}
 </head>
 <body>
+    <content>
+        {% if error == True %}
+            Honang 계정이 존재하지 않습니다 <br>
+            <a href="/">Honang 계정에 가입해주세요.</a>
 
-    {% if error == False %}
-        <p>호낭봇에 가입되어있지 않아요! [ /계정생성 ] 명령어로 가입 후 시도해주세요.</p>
+        {% else %}
+            <div class="userInfo">
+                <div class="infoBox">
+                    <img src="{{ current_user.avatar_url }}"> <br>
+                    {{ current_user.username }} <br>
+                    <progress value="{{ account[1] }}" max="{{ account[2] * 1000 }}"></progress> <br>
+                    <span style="font-size: 15px;">{{ account[4] }}</span>
 
-        <a href="/logout">
-            <button class="buttonLogoutSend">Logout</button>
-        </a>
+                </div>
+            </div>
 
-    {% else %}  
-    <div class="profileBox"></div>
-        <img class="profileImage" src="{{ current_user.avatar_url }}">
-        <p class="idText">[<a style="color: greenyellow">Lv.{{ account[2] }}</a>] {{ current_user.username }}</p>
-        <p class="stateText">
-            <progress id="EXP" value="{{ account[1] }}" max="{{ 1000 * account[2] }}"></progress>
-        </p>    
-
-    <div class="indexBox"></div>
-        <span class="indexRoute">
-            <span style="color: yellow;">{{ account[0] }}</span> <br>
-            Coins
-        </span>
-    
-    
-    {% endif %}
-        <a href="/logout">
-            <button class="buttonLogoutSend">Logout</button>
-        </a>
+        {% endif %}
+    </content>  
         
 </body>
 </html>

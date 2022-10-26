@@ -31,13 +31,13 @@ def profile():
         current_user = bearer_client.users.get_current_user()
         if DataReceiver.check(current_user.id) == True:
             #! User Account Info !#
-            userAccountB = ["2_Coin", "3_Exp", "4_Level", "5_Time"]; userAccount = []
+            userAccountB = ["2_Coin", "3_Exp", "4_Level", "5_Time", "6_State"]; userAccount = []
             for i in range(0, len(userAccountB)):   
                 userAccount.append(DataReceiver.get(f"USERDATA/{current_user.id}", f"{userAccountB[i]}"))
 
             return render_template("userInfo.html", current_user = current_user, account = userAccount) 
 
-        else: return render_template("userInfo.html", current_user = current_user, error = False) 
+        else: return render_template("userInfo.html", current_user = current_user, error = True) 
 
     else:
         return render_template("home.html", oauth_uri = OAUTH_URI)

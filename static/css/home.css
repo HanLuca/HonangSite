@@ -21,7 +21,7 @@ header {
     top: 0; left: 0; right: 0;
 
     height: 30px; padding: 0.5rem 1.5rem; /* rem = 16px * 10 */
-    color: black; background-color: #C2C2C2;
+    color: black; background-color: #EEEEEE;
 
     display: flex; justify-content: space-between;
     align-items: center; font-size: 15px;
