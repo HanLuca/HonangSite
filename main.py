@@ -31,7 +31,7 @@ def profile():
         current_user = bearer_client.users.get_current_user()
         if DataReceiver.check(current_user.id) == True:
             #! User Account Info !#
-            userAccountB = ["2_Coin", "3_Exp", "4_Level", "5_Time", "6_State"]; userAccount = []
+            userAccountB = ["1_Points", "2_Level", "3_Expoints", "4_Number", "5_JoinedTime"]; userAccount = []
             for i in range(0, len(userAccountB)):   
                 userAccount.append(DataReceiver.get(f"USERDATA/{current_user.id}", f"{userAccountB[i]}"))
 
@@ -57,4 +57,4 @@ def logout():
     return redirect("/")
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run(debug = True, host = "0.0.0.0")
